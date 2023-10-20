@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class dataObat extends Model
+class DataObat extends Model
 {
-    use HasFactory;
+    // use HasFactory;
     protected $table = 'tbObat'; //nama tabel
     protected $fillable = [
         'id_obat',
@@ -17,10 +17,10 @@ class dataObat extends Model
         'tgl_kadaluarsa',
         'harga',
         'keterangan',
-        'id_admin',
+        'id_rak',
         ]; //kolom yang dapat diisi
     
-    public function category(){
-        return $this->belongsTo(admin::class); //merelasikan tabel dtobat dan admin
-    }
+    // public function rak(){
+    //     return $this->belongsTo(DataRak::class); //merelasikan tabel tbobat dan admin
+    // }
 }

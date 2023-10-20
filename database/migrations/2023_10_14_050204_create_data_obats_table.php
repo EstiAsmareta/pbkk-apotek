@@ -12,8 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('data_obats', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('id_obat',6)->primary();
+            $table->bigInteger('rak_id');
+            $table->string('nama_obat');
+            $table->string('nama_produsen'); 
+            $table->integer('stok');
+            $table->date('tgl_kadaluarsa');
+            $table->integer('harga'); // contoh ukuran (10, 2), sesuaikan dengan kebutuhan
+            $table->text('keterangan'); //tambahkan nullable() jika ingin mengizinkan kolom keterangan kosong
+            // $table->timestamps(); ini akan menambahkan kolom created_at dan updated_at secara otomatis
+        });
+
+        Schema::table('data_obats', function (Blueprint $table){
+            $table->foreign('rak_id')->references('id')->on('data_raks');
         });
     }
 

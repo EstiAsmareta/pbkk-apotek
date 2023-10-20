@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\dataObat;
+use App\Models\DataObat;
 use Illuminate\Http\Request;
 
-class dataObatController extends Controller
+class DataObatController extends Controller
 {
 
     public function index()
     {
-        $dataObat = dataObat::all();
-        return view('Obat.index', compact('dataObat'));
+        $DataObat = DataObat::all();
+        return view('Obat.index', compact('DataObat'));
     }
 
     public function create()
@@ -21,12 +21,12 @@ class dataObatController extends Controller
 
     public function read($id_obat)
     {
-        $dataObat = dataObat::find($id_obat);
-        if(!$dataObat){
+        $DataObat = DataObat::find($id_obat);
+        if(!$DataObat){
             return response()->json(['massage'=>'Data tidak ditemukan'], 404);
         }
 
-        return response()->json($dataObat);
+        return response()->json($DataObat);
     }
 
     public function store(Request $request)
@@ -34,40 +34,40 @@ class dataObatController extends Controller
         //
     }
 
-    public function show(dataObat $dataObat)
+    public function show(dataObat $DataObat)
     {
         //
     }
     
-    public function edit(dataObat $id_obat)
+    public function edit(DataObat $id_obat)
     {
-        $dataObat = dataObat::find($id_obat);
-        return view('Obat.edit', compact('dataObat'));
+        $DataObat = DataObat::find($id_obat);
+        return view('Obat.edit', compact('DataObat'));
     }
 
-    public function update(Request $request, dataObat $id_obat)
+    public function update(Request $request, DataObat $id_obat)
     {
-        $dataObat = dataObat::find($id_obat);
-        if(!$dataObat){
+        $DataObat = DataObat::find($id_obat);
+        if(!$DataObat){
             return response()->json(['massage'=>'Data tidak ditemukan'], 404);
         }
 
-        $dataObat->update($request->all());
+        $DataObat->update($request->all());
         return response()->json(['massage'=>'Data berhasil diperbarui']);
     }
 
     public function delete($id_obat)
     {
-        $dataObat = dataObat::find($id_obat);
-        if(!$dataObat){
+        $DataObat = dataObat::find($id_obat);
+        if(!$DataObat){
             return response()->json(['massage'=>'Data Tidak ditemukan'],404);
         }
 
-        $dataObat->delete();
+        $DataObat->delete();
         return response()->json(['massage'=>'Data berhasil dihapus']);
     }
 
-    public function destroy(dataObat $dataObat)
+    public function destroy(dataObat $DataObat)
     {
         //
     }
