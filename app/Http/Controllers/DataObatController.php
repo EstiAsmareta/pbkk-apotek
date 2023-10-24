@@ -19,9 +19,9 @@ class DataObatController extends Controller
         return view('Obat.create');
     }
 
-    public function read($id_obat)
+    public function read($obat_id)
     {
-        $DataObat = DataObat::find($id_obat);
+        $DataObat = DataObat::find($obat_id);
         if(!$DataObat){
             return response()->json(['massage'=>'Data tidak ditemukan'], 404);
         }
@@ -39,15 +39,15 @@ class DataObatController extends Controller
         //
     }
     
-    public function edit(DataObat $id_obat)
+    public function edit(DataObat $obat_id)
     {
-        $DataObat = DataObat::find($id_obat);
+        $DataObat = DataObat::find($obat_id);
         return view('Obat.edit', compact('DataObat'));
     }
 
-    public function update(Request $request, DataObat $id_obat)
+    public function update(Request $request, DataObat $obat_id)
     {
-        $DataObat = DataObat::find($id_obat);
+        $DataObat = DataObat::find($obat_id);
         if(!$DataObat){
             return response()->json(['massage'=>'Data tidak ditemukan'], 404);
         }
@@ -56,9 +56,9 @@ class DataObatController extends Controller
         return response()->json(['massage'=>'Data berhasil diperbarui']);
     }
 
-    public function delete($id_obat)
+    public function delete($obat_id)
     {
-        $DataObat = dataObat::find($id_obat);
+        $DataObat = dataObat::find($obat_id);
         if(!$DataObat){
             return response()->json(['massage'=>'Data Tidak ditemukan'],404);
         }

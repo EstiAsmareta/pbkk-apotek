@@ -10,17 +10,17 @@ class DataObat extends Model
     // use HasFactory;
     protected $table = 'tbObat'; //nama tabel
     protected $fillable = [
-        'id_obat',
+        'obat_id',
         'nama_obat',
         'nama_produsen',
         'stok',
         'tgl_kadaluarsa',
         'harga',
         'keterangan',
-        'id_rak',
+        'rak_id',
         ]; //kolom yang dapat diisi
     
-    // public function rak(){
-    //     return $this->belongsTo(DataRak::class); //merelasikan tabel tbobat dan admin
-    // }
+    public function rak(){
+        return $this->belongsTo(DataRak::class); //merelasikan tabel tbobat dan admin
+    }
 }

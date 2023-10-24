@@ -9,15 +9,24 @@
 <body>
     <table>
         <thead>
-            <tr>Nama Obat</tr>
-            <tr>Brand</tr>
-            <tr> Rak </tr>
+            <tr>
+                <th>Nama Obat</th>
+                <th>Brand</th>
+                <th> Rak </th>
+                <th>Action</th>
+            </tr>
         </thead>
         <tbody>
             @foreach ($DataObat as $DataObat)
-            <td>{{ $DataObat->id_obat }}</td>
-            <td>{{ $DataObat->nama_produsen }}</td>
-            <td>{{ $DataObat->id_Rak }}</td>
+            <tr>
+                <td>{{ $DataObat->obat_id }}</td>
+                <td>{{ $DataObat->nama_produsen }}</td>
+                <td>{{ $DataObat->rak_id }}</td>
+                <td>{{ $DataObat->rak->no_rak }}</td>
+                <td>
+                    <button class="">Edit</button>
+                </td>
+            </tr>
             @endforeach
         </tbody>
     </table>
