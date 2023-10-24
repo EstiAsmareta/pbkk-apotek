@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class DataObat extends Model
 {
     // use HasFactory;
-    protected $table = 'tbObat'; //nama tabel
+    // protected $table = 'tbObat'; //nama tabel
     protected $fillable = [
         'obat_id',
         'nama_obat',
@@ -20,7 +21,8 @@ class DataObat extends Model
         'rak_id',
         ]; //kolom yang dapat diisi
     
-    public function rak(){
+    public function DataRak(): BelongsTo
+    {
         return $this->belongsTo(DataRak::class); //merelasikan tabel tbobat dan admin
     }
 }

@@ -14,7 +14,7 @@ class DataRak extends Model
         'no_rak'
     ];
 
-    public function obat(): HasOne
+    public function DataObat(): HasOne
     {
         return $this->hasOne(DataObat::class);
     }

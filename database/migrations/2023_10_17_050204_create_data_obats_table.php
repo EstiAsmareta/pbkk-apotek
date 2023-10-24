@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('data_obats', function (Blueprint $table) {
-            $table->string('id_obat',6)->primary();
-            $table->bigInteger('rak_id');
+            $table->string('obat_id',6)->primary();
+            $table->unsignedBigInteger('rak_id');
             $table->string('nama_obat');
             $table->string('nama_produsen'); 
             $table->integer('stok');

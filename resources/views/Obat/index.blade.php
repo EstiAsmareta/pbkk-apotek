@@ -22,9 +22,9 @@
                 <td>{{ $DataObat->obat_id }}</td>
                 <td>{{ $DataObat->nama_produsen }}</td>
                 <td>{{ $DataObat->rak_id }}</td>
-                <td>{{ $DataObat->rak->no_rak }}</td>
+                {{-- <td>{{ $DataObat->DataRak->rak }}</td> --}}
                 <td>
-                    <button class="">Edit</button>
+                    <a href="{{ route('edit', $DataObat->obat_id) }}" class="btn btn-primary">Edit</a>
                 </td>
             </tr>
             @endforeach
